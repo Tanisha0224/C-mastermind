@@ -1,0 +1,390 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>C Mastermind</title>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="style/owl.carousel.min.css">
+<link rel="stylesheet" type="text/css" href="style/styles.css">
+<link rel="stylesheet" type="text/css" href="style/footer.css">
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.4/build/player/lottie.min.js"></script>
+<link rel="shortcut icon" href="assets/letter-c.png" type="image/x-icon">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+
+<body>
+	
+    <header>
+		<div class="Navbar">
+			<div class="icon-profile">
+				<img onclick="toggleProfile()" src= <%= user.image %> alt="profile-img">
+		     	<h1><%= user.name %></h1>
+			</div>
+			<ul>
+			  <li onclick="toggleAchievements()">Acheivment</li>
+			  <li  id="shop-btn">Shop</li>
+			  <li onclick="toggleRules()">Rules</li>
+			  <li onclick="toggleHelp()">Help</li>
+			</ul>
+		  </div>
+    </header>
+	
+	<div class="help-menu" id="helpMenu">
+		<img src="assets/love.png" alt="rules-img">
+		<h2>Help & Support</h2>
+		<form id="emailForm">
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required>
+			
+			<label for="message">Message:</label>
+			<textarea id="message" name="message" required></textarea>
+			
+			<button type="submit">Send</button>
+		</form>
+	</div>
+	
+	  <div class="rules-menu" id="rulesMenu">
+        <div class="rules-details">
+			<img src="assets/rules.png" alt="">
+				<h2>Rules Of Quiz</h2>
+				<div class="info-list">
+					<div class="info">1. Each question must be answered before proceeding to the next.</div>
+					<div class="info">2. Once an answer is submitted, it cannot be changed.</div>
+					<div class="info">3. There is no time limit for answering questions.</div>
+					<div class="info">4. Exiting the quiz during play is not allowed.</div>
+					<div class="info">5. Points are awarded based on the accuracy of answers.</div>
+				</div>
+        </div>
+      </div>
+
+	  <div class="achievements-menu" id="achievementsMenu">
+        <div class="achievements-details">
+			<img src="assets/flag.png" alt="">
+				<h2>Achievements</h2>
+				<div class="achievements-list">
+					<div class="star">
+					  <img src="assets/star.png" alt="">
+					  <p><strong>Star : </strong><%= user.star %></p>
+					</div>
+					<div class="medal">
+					  <img src="assets/diamond.png" alt="">
+					  <p><strong>Diamond : </strong><%= user.diamond %></p>
+					</div>
+					<div class="trophy">
+					  <img src="assets/trophy.png" alt="">
+					  <p><strong>Trophy : </strong><%= user.trophy %></p>
+					</div>
+					<div class="cash">
+						<img src="assets/money.png" alt="">
+						<p><strong>Cash : </strong><%= user.cash %>$</p>
+					</div>
+				  </div>
+        </div>
+      </div>
+
+      <div class="profile-menu" id="profileMenu">
+        <div class="profile-details">
+			<img src= <%= user.image %> alt="<%= user.image %>" class="profile-img">
+          <h2>User Profile</h2>
+          <p><strong>Name: </strong><%= user.name %></p>
+		  <p><strong>Gender: </strong><%= user.gender %></p>
+		  <p><strong>Age: </strong><%= user.age %></p>
+          <p><strong>Email: </strong><%= user.email %></p>
+          <p><strong>Mobile: </strong><%= user.mobile %></p>
+          <p><strong>Level: </strong><%= user.level %></p>
+          <p><strong>Badges: </strong><%= user.badge %></p>
+        </div>
+        <a href="/logout" class="logout-btn">logout</a>
+      </div>
+	  <div class="msg">
+        <p id="m-id">Please complete the previous Section.</p>
+    </div>
+<section id="slider" class="pt-5">
+  <div class="container">
+	  <div class="slider">
+				<div class="owl-carousel">
+					<div class="slider-card color1 button1">
+                        <div class="d-flex justify-content-center align-items-center mb-4">
+                          <img src="assets/3.avif" alt="not found">
+                        </div>
+                        <h3 class="mb-0 text-center"><b>Beginner</b></h3>
+                        <div class="container1 text-center"> 
+                          <div class="progress-container">
+                            <h5>Unit 01: Introduction</h5>
+                            <div class="progress-bar">
+								<% if (user.position === 1) { %>
+									<span data-width="6%"></span>
+								<% } else if (user.position === 2) { %>
+									<span data-width="12%"></span>
+								<% } else if (user.position === 3) { %>
+									<span data-width="18%"></span>
+								<% } else if (user.position === 4) { %>
+									<span data-width="24%"></span>
+								<% } else if (user.position === 5) { %>
+									<span data-width="30%"></span>
+								<% } else if (user.position === 6) { %>
+									<span data-width="36%"></span>
+								<% } else if (user.position === 7) { %>
+									<span data-width="42%"></span>
+								<% } else if (user.position === 8) { %>
+									<span data-width="48%"></span>
+								<% } else if (user.position === 9) { %>
+									<span data-width="54%"></span>
+								<% } else if (user.position === 10) { %>
+									<span data-width="60%"></span>
+								<% } else if (user.position === 11) { %>
+									<span data-width="66%"></span>
+								<% } else if (user.position === 12) { %>
+									<span data-width="72%"></span>
+								<% } else if (user.position === 13) { %>
+									<span data-width="78%"></span>
+								<% } else if (user.position === 14) { %>
+									<span data-width="84%"></span>
+								<% } else if (user.position >= 15) { %>
+									<span data-width="100%"></span>
+								<% } %>
+								
+                            </div>
+                          </div>
+                        </div>
+						<div class="anime" id="animation-container1">
+
+						</div>
+						<button onclick="window.location.href='/unit1'" class="btn">Continue</button>
+                      </div>
+					<div class="slider-card  color2">
+						<div class="d-flex justify-content-center align-items-center mb-4">
+							<img src="assets/4.jpg" alt="">
+						</div>
+						<h3 class="mb-0 text-center"><b>Apprentice</b></h3>
+						<div class="container1 text-center"> 
+							<div class="progress-container">
+							  <h5>Unit 02: Control flow</h5>
+							  <div class="progress-bar">
+								<% if (user.position - 15 === 1) { %>
+									<span data-width="6%"></span>
+								<% } else if (user.position - 15 === 2) { %>
+									<span data-width="12%"></span>
+								<% } else if (user.position - 15 === 3) { %>
+									<span data-width="18%"></span>
+								<% } else if (user.position - 15 === 4) { %>
+									<span data-width="24%"></span>
+								<% } else if (user.position - 15 === 5) { %>
+									<span data-width="30%"></span>
+								<% } else if (user.position - 15 === 6) { %>
+									<span data-width="36%"></span>
+								<% } else if (user.position - 15 === 7) { %>
+									<span data-width="42%"></span>
+								<% } else if (user.position - 15 === 8) { %>
+									<span data-width="48%"></span>
+								<% } else if (user.position - 15 === 9) { %>
+									<span data-width="54%"></span>
+								<% } else if (user.position - 15 === 10) { %>
+									<span data-width="60%"></span>
+								<% } else if (user.position - 15 === 11) { %>
+									<span data-width="66%"></span>
+								<% } else if (user.position - 15 === 12) { %>
+									<span data-width="72%"></span>
+								<% } else if (user.position - 15 === 13) { %>
+									<span data-width="78%"></span>
+								<% } else if (user.position - 15 === 14) { %>
+									<span data-width="84%"></span>
+								<% } else if (user.position - 15 >= 15) { %>
+									<span data-width="100%"></span>
+								<% } %>
+								
+							  </div>
+							</div>
+						  </div>
+						  <div class="anime" id="animation-container2">
+
+						  </div>
+						<% if (user.level === 'Beginner') { %>
+							<button onclick="LockedSection()" class="btn" id="c-2"><i class="bx bxs-lock-alt"></i>Continue</button>
+						<% } else { %>
+							<button onclick="window.location.href='/unit2'" class="btn" id="c-2">Continue</button>
+						<% } %>
+				
+					 </div>
+					<div class="slider-card color3">
+						<div class="d-flex justify-content-center align-items-center mb-4">
+							<img src="assets/5.avif" alt="">
+						</div>
+						<h3 class="mb-0 text-center"><b>Journeyman</b></h3>
+						<div class="container1 text-center">
+							<div class="progress-container">
+							  <h5>Unit 03: Functions</h5>
+							  <div class="progress-bar">
+								<% if (user.position - 30 === 1) { %>
+									<span data-width="6%"></span>
+								<% } else if (user.position - 30 === 2) { %>
+									<span data-width="12%"></span>
+								<% } else if (user.position - 30 === 3) { %>
+									<span data-width="18%"></span>
+								<% } else if (user.position - 30 === 4) { %>
+									<span data-width="24%"></span>
+								<% } else if (user.position - 30 === 5) { %>
+									<span data-width="30%"></span>
+								<% } else if (user.position - 30 === 6) { %>
+									<span data-width="36%"></span>
+								<% } else if (user.position - 30 === 7) { %>
+									<span data-width="42%"></span>
+								<% } else if (user.position - 30 === 8) { %>
+									<span data-width="48%"></span>
+								<% } else if (user.position - 30 === 9) { %>
+									<span data-width="54%"></span>
+								<% } else if (user.position - 30 === 10) { %>
+									<span data-width="60%"></span>
+								<% } else if (user.position - 30 === 11) { %>
+									<span data-width="66%"></span>
+								<% } else if (user.position - 30 === 12) { %>
+									<span data-width="72%"></span>
+								<% } else if (user.position - 30 === 13) { %>
+									<span data-width="78%"></span>
+								<% } else if (user.position - 30 === 14) { %>
+									<span data-width="84%"></span>
+								<% } else if (user.position - 30 >= 15) { %>
+									<span data-width="100%"></span>
+								<% } %>
+								
+							  </div>
+							</div>
+						  </div>
+						  <div class="anime" id="animation-container3">
+
+						  </div>
+						  <% if (user.level === 'Apprentice' || user.level === 'Beginner') { %>
+							<button onclick="LockedSection()" class="btn" id="c-2"><i class="bx bxs-lock-alt"></i>Continue</button>
+						<% } else { %>
+							<button onclick="window.location.href='/unit3'" class="btn" id="c-2">Continue</button>
+						<% } %> 
+						
+                
+					</div>
+					<div class="slider-card color4">
+						<div class="d-flex justify-content-center align-items-center mb-4">
+							<img src="assets/6.jpg" alt="">
+						</div>
+						<h3 class="mb-0 text-center"><b>Veteran</b></h3>
+						<div class="container1 text-center"> 
+							<div class="progress-container">
+							  <h5>Unit 04: Array / String</h5>
+							  <div class="progress-bar">
+								<% if (user.position - 45 === 4) { %>
+									<span data-width="8%"></span>
+								<% } else if (user.position - 45 === 5) { %>
+									<span data-width="16%"></span>
+								<% } else if (user.position - 45 === 6) { %>
+									<span data-width="24%"></span>
+								<% } else if (user.position - 45 === 7) { %>
+									<span data-width="32%"></span>
+								<% } else if (user.position - 45 === 8) { %>
+									<span data-width="40%"></span>
+								<% } else if (user.position - 45 === 9) { %>
+									<span data-width="48%"></span>
+								<% } else if (user.position - 45 === 10) { %>
+									<span data-width="56%"></span>
+								<% } else if (user.position - 45 === 11) { %>
+									<span data-width="64%"></span>
+								<% } else if (user.position - 45 === 12) { %>
+									<span data-width="72%"></span>
+								<% } else if (user.position - 45 === 13) { %>
+									<span data-width="80%"></span>
+								<% } else if (user.position - 45 === 14) { %>
+									<span data-width="88%"></span>
+								<% } else if (user.position - 45 >= 15) { %>
+									<span data-width="100%"></span>
+								<% } %>
+								
+							  </div>
+							</div>
+						  </div>
+						  <div class="anime" id="animation-container4">
+
+						  </div>
+                        <% if ( user.level === 'Journeyman' || user.level === 'Apprentice' || user.level === 'Beginner') { %>
+							<button onclick="LockedSection()" class="btn" id="c-2"><i class="bx bxs-lock-alt"></i>Continue</button>
+						<% } else { %>
+							<button class="btn" id="c-2" onclick="window.location.href='/unit4'" >Continue</button>
+						<% } %>
+					</div>
+					<div class="slider-card color5">
+						<div class="d-flex justify-content-center align-items-center mb-4">
+							<img src="assets/10.jpg" alt="">
+						</div>
+						<h3 class="mb-0 text-center"><b>Master</b></h3>
+						<div class="container1 text-center">
+							<div class="progress-container">
+							  <h5>Unit 05: File Handling</h5>
+							  <div class="progress-bar">
+								<% if (user.position - 60 === 1) { %>
+									<span data-width="10%"></span>
+								<% } else if (user.position - 60 === 2) { %>
+									<span data-width="20%"></span>
+								<% } else if (user.position - 60 === 3) { %>
+									<span data-width="30%"></span>
+								<% } else if (user.position - 60 === 4) { %>
+									<span data-width="40%"></span>
+								<% } else if (user.position - 60 === 5) { %>
+									<span data-width="50%"></span>
+								<% } else if (user.position - 60 === 6) { %>
+									<span data-width="60%"></span>
+								<% } else if (user.position - 60 === 7) { %>
+									<span data-width="70%"></span>
+								<% } else if (user.position - 60 === 8) { %>
+									<span data-width="80%"></span>
+								<% } else if (user.position - 60 === 9) { %>
+									<span data-width="100%"></span>
+								<% } %>
+								
+							  </div>
+							</div>
+						  </div>
+						  <div class="anime" id="animation-container5">
+
+						  </div>
+                        <% if (user.level === 'Veteran' || user.level === 'Journeyman' || user.level === 'Apprentice' || user.level === 'Beginner') { %>
+							<button onclick="LockedSection()" class="btn" id="c-2"><i class="bx bxs-lock-alt"></i>Continue</button>
+						<% } else { %>
+							<button onclick="window.location.href='/unit5'" class="btn" id="c-2">Continue</button>
+						<% } %>
+					 </div> 
+				</div>
+			</div>
+  </div>
+</section> 
+
+<div class="shop-section">
+    <div class="card">
+       <div class="images">
+		<img src="assets/money.png" alt="Cash">
+		<span>&#8594;</span>
+		<img  src="assets/hint.png"alt="hint">
+	   </div>
+        <p>1 Hint : 200 $</p>
+        <button class="buy-button" id="buy-1">Buy Hint</button>
+    </div>
+    <div class="card">
+		<div class="images">
+			<img src="assets/diamond.png" alt="Cash">
+			<span>&#8594;</span>
+			<img  src="assets/hint.png"alt="hint">
+		   </div>
+		   <p>1 Hint : 5 Diamonds</p>
+        <button class="buy-button" id="buy-2">Buy Hint</button>
+    </div>
+</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script> 
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
+	<script src="script/owl.carousel.min.js"></script>
+	<script src="script/script.js"></script>
+</body>
+</html>
